@@ -1,0 +1,3260 @@
+{
+  "meta": {
+    "title": "Fukui Tourism Intelligence",
+    "subtitle": "Pilot model of the Government Intelligence dashboard",
+    "as_of": "2026-09-30",
+    "author": "Strategy team",
+    "source_doc": "Strategic Questions Integrated Dashboard v1 (shared 27 Sep 2026). Pilot, not definitive.",
+    "footer": "Pilot for discussion with the tech team and the Fukui Prefecture Tourism Federation. Programme ends 10 Nov 2026."
+  },
+  "pills": {
+    "real": {
+      "label": "Real",
+      "description": "Published statistics"
+    },
+    "modelled": {
+      "label": "Estimated",
+      "description": "Derived from real inputs by a stated calculation or model"
+    },
+    "illustrative": {
+      "label": "Illustrative",
+      "description": "Simulated, not to be quoted"
+    },
+    "pending": {
+      "label": "Data pending",
+      "description": "Placeholder until the source arrives"
+    }
+  },
+  "equation": {
+    "status": "modelled",
+    "terms": [
+      {
+        "label": "overnight guests",
+        "value_text": "2.385M",
+        "op": "×"
+      },
+      {
+        "label": "spend per overnight guest",
+        "value_text": "¥30,221",
+        "op": "+"
+      },
+      {
+        "label": "day-trippers",
+        "value_text": "19.06M",
+        "op": "×"
+      },
+      {
+        "label": "spend per day-tripper",
+        "value_text": "¥5,546",
+        "op": "→"
+      },
+      {
+        "label": "tourism spend 2025",
+        "value_text": "¥198.7bn",
+        "op": null
+      }
+    ],
+    "caption": "Q2 manages visitors (21.44M in 2025: 11.1% stay overnight, 88.9% day trips) · Q3 raises stay rate and spend · Q4 finds where each term leaks · Q5 shows which spending moves which term · Q1 is the total. All terms are 2025 figures from one report, 福井県観光客入込数（推計）令和7年. Multiplied out they give about ¥178bn; the official ¥198.7bn is estimated with separate unit prices for visitors from inside and outside the prefecture (e.g. ¥41,066 per out-of-prefecture overnight guest), so the arrows show the parts, not an exact sum."
+  },
+  "todos": [
+    {
+      "for": "strategy team",
+      "text": "Figures updated 29 Sep 2026 to 2025, on the same definitions as the vision's targets (sources on each card). Still to confirm: (1) A2 transfer-tour riders count toward the all-overnight gap only, because their nationality isn't known; say if they should also count toward the foreign gap. (2) ¥43,000 spend per foreign visitor (Bank of Japan Kanazawa Branch, from the team brief) hasn't been checked against the source."
+    },
+    {
+      "for": "strategy team (economy block, prototype)",
+      "text": "To confirm before this goes live: (1) the split of 'meals, admissions and local transport' (assumed 75% hospitality / 25% transport; JTA 旅行・観光消費動向調査 shares can replace it); (2) how much of souvenir goods are Fukui-made (the IO default counts about 30%; 50% adds ¥4bn of GDP); (3) jobs use 2020 coefficients from a pandemic year and may run high."
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "number": 1,
+      "nav": "Fukui Tourism Economy",
+      "title": "Fukui Tourism Economy",
+      "question": "What is tourism worth to Fukui's economy?",
+      "why": "Budget, political support, investment cases; DMOs must report economic ripple effect to JTA every three years.",
+      "subs": [
+        "How much do visitors spend?",
+        "What share of the economy and jobs?",
+        "On track for 2029 targets?"
+      ],
+      "answer": "On 2025 figures, three of the five 2029 vision targets are already met: tourism spend ¥198.7bn (target ¥170bn), visitors 21.44M (21M) and spend per overnight guest ¥30,221 (¥27,000). Overnight guest-nights are on pace (3.93M vs 4.5M) but fell 2.4% in 2025; foreign guest-nights are the one target behind (108.6k vs 400k). Run through the prefecture's 2020 input-output table, that spend supports about ¥139bn of GDP, 3.4% of the economy (2.1% direct), and about 33,900 jobs (7.9% of workers), up from 2.6% and 23,300 jobs in 2019 on the same method (the prefecture's own 2019 estimate: 2.8%). Every extra ¥1bn of spend adds about ¥0.70bn of GDP and 171 jobs.",
+      "cards": [
+        {
+          "id": "q1-spend",
+          "type": "stat",
+          "span": 4,
+          "status": "real",
+          "title": "Tourism spend 2025",
+          "value_text": "¥198.7bn",
+          "detail": "Target ¥170bn by 2029: already met (2024: ¥151.3bn)",
+          "source": "Fukui Pref. 観光客入込数（推計）令和7年 観光消費額 1,987億円 (2025, calendar year; visitors counted once each, 実人数). https://www.pref.fukui.lg.jp/doc/kankou/fukuiken-kankoukyakusu_d/fil/024.pdf"
+        },
+        {
+          "id": "q1-share",
+          "type": "stat",
+          "span": 4,
+          "status": "modelled",
+          "badge": "Updated",
+          "title": "Share of prefecture economy",
+          "value_text": "3.4%",
+          "detail": "2025: ¥139bn of GDP incl. suppliers and wage spending; 2.1% direct. FY2008: 1.6%; 2019 (prefecture): 2.8%",
+          "source": "Fukui R2 (2020) input-output tool, 37 sectors, on 2025 spend of ¥198.7bn (入込数 令和7年). GDP FY2025 estimate ¥4.08tn = FY2023 ¥3.95tn (ESRI) grown at Fukui's own FY2011–23 trend (+1.55% a year). https://www.pref.fukui.lg.jp/doc/toukei-jouhou/hakyukouka_d/fil/01.xlsx"
+        },
+        {
+          "id": "q1-jobs",
+          "type": "stat",
+          "span": 4,
+          "status": "modelled",
+          "badge": "Updated",
+          "title": "Jobs supported",
+          "value_text": "33,900",
+          "detail": "7.9% of workers; 26,800 in the businesses visitors pay. FY2008: ~12,000 (2.8%); 2019 (prefecture): 23,320 (5.5%)",
+          "note": "People in work, part-time included (就業者), not new hires. 2020 was a pandemic year, so jobs per yen may run high.",
+          "source": "Same model: output × jobs per yen by sector (就業係数, 2020). Workers FY2023: 427,326 (ESRI). https://www.pref.fukui.lg.jp/doc/toukei-jouhou/hakyukouka_d/fil/01.xlsx"
+        },
+        {
+          "id": "q1-gdp",
+          "type": "gdp_trend",
+          "span": 5,
+          "status": "modelled",
+          "badge": "New",
+          "title": "Fukui's GDP and tourism's part of it, FY2014–FY2029",
+          "points": [
+            {
+              "fy": 2014,
+              "actual": 3191.6,
+              "tourism_va": 63.4
+            },
+            {
+              "fy": 2015,
+              "actual": 3390,
+              "tourism_va": 67.5
+            },
+            {
+              "fy": 2016,
+              "actual": 3299.9,
+              "tourism_va": 88.2
+            },
+            {
+              "fy": 2017,
+              "actual": 3442.5,
+              "tourism_va": 88.5
+            },
+            {
+              "fy": 2018,
+              "actual": 3638.8,
+              "tourism_va": 92.5
+            },
+            {
+              "fy": 2019,
+              "actual": 3676.2,
+              "tourism_va": 95.2
+            },
+            {
+              "fy": 2020,
+              "actual": 3599.1,
+              "tourism_va": 58.6
+            },
+            {
+              "fy": 2021,
+              "actual": 3757.4,
+              "tourism_va": 59.6
+            },
+            {
+              "fy": 2022,
+              "actual": 3547.8,
+              "tourism_va": 74.2
+            },
+            {
+              "fy": 2023,
+              "actual": 3954.2,
+              "tourism_va": 85.6
+            },
+            {
+              "fy": 2024,
+              "base": 4015.7,
+              "kind": "nowcast",
+              "tourism_va": 106.6
+            },
+            {
+              "fy": 2025,
+              "base": 4078,
+              "kind": "nowcast",
+              "tourism_va": 139
+            },
+            {
+              "fy": 2026,
+              "base": 4141.4,
+              "kind": "forecast",
+              "tourism_va": 142.9
+            },
+            {
+              "fy": 2027,
+              "base": 4205.7,
+              "kind": "forecast",
+              "tourism_va": 147.2
+            },
+            {
+              "fy": 2028,
+              "base": 4271,
+              "kind": "forecast",
+              "tourism_va": 151.6
+            },
+            {
+              "fy": 2029,
+              "base": 4337.4,
+              "kind": "forecast",
+              "tourism_va": 156.2
+            }
+          ],
+          "kpis": [
+            {
+              "label": "FY2023, published",
+              "value_text": "¥3.95tn",
+              "detail": "Tourism ¥86bn = 2.2% of it",
+              "status": "real"
+            },
+            {
+              "label": "FY2025, estimate",
+              "value_text": "¥4.08tn",
+              "detail": "Tourism ¥139bn = 3.4% of it",
+              "status": "modelled"
+            },
+            {
+              "label": "FY2029, estimate",
+              "value_text": "¥4.34tn",
+              "detail": "Tourism ¥156bn = 3.6% of it",
+              "status": "modelled"
+            }
+          ],
+          "note": "Nominal GDP (県内総生産): FY2014–FY2023 as published; from FY2024 estimated by growing FY2023 at Fukui's own FY2011–23 trend, +1.55% a year. Orange = GDP added by tourism in that year (direct + indirect ① + indirect ②), from the model below. Power-sector value added swings Fukui's GDP: FY2022 −5.6%, FY2023 +11.5% (of which power +9.9pt).",
+          "source": "ESRI 県民経済計算 FY2011–FY2023 (released 7 Aug 2026), soukatu1.xlsx, https://www.esri.cao.go.jp/jp/sna/data/data_list/kenmin/files/contents/main_2023.html; tourism contribution: Fukui R2 input-output tool."
+        },
+        {
+          "id": "q1-contrib",
+          "type": "tourism_trend",
+          "span": 7,
+          "status": "modelled",
+          "badge": "New",
+          "title": "Tourism's contribution to GDP and jobs, 2014–2029",
+          "points": [
+            {
+              "year": 2014,
+              "kind": "modelled",
+              "spend_bn": 87.6,
+              "gdp_bn": 3191.6,
+              "gdp_kind": "actual",
+              "va_direct": 38.4,
+              "jobs_direct": 12564,
+              "share_direct": 1.2,
+              "va_indirect1": 14.6,
+              "jobs_indirect1": 2036,
+              "share_indirect1": 0.46,
+              "va_indirect2": 10.4,
+              "jobs_indirect2": 1216,
+              "share_indirect2": 0.33,
+              "va_total": 63.4,
+              "jobs_total": 15817,
+              "share_total": 1.99,
+              "jobs_share_total": 3.8
+            },
+            {
+              "year": 2015,
+              "kind": "modelled",
+              "spend_bn": 93.7,
+              "gdp_bn": 3390,
+              "gdp_kind": "actual",
+              "va_direct": 40.9,
+              "jobs_direct": 13322,
+              "share_direct": 1.21,
+              "va_indirect1": 15.5,
+              "jobs_indirect1": 2165,
+              "share_indirect1": 0.46,
+              "va_indirect2": 11.1,
+              "jobs_indirect2": 1295,
+              "share_indirect2": 0.33,
+              "va_total": 67.5,
+              "jobs_total": 16782,
+              "share_total": 1.99,
+              "jobs_share_total": 4
+            },
+            {
+              "year": 2016,
+              "kind": "modelled",
+              "spend_bn": 125.5,
+              "gdp_bn": 3299.9,
+              "gdp_kind": "actual",
+              "va_direct": 53.5,
+              "jobs_direct": 17099,
+              "share_direct": 1.62,
+              "va_indirect1": 20.2,
+              "jobs_indirect1": 2821,
+              "share_indirect1": 0.61,
+              "va_indirect2": 14.5,
+              "jobs_indirect2": 1701,
+              "share_indirect2": 0.44,
+              "va_total": 88.2,
+              "jobs_total": 21621,
+              "share_total": 2.67,
+              "jobs_share_total": 5.2
+            },
+            {
+              "year": 2017,
+              "kind": "modelled",
+              "spend_bn": 125.7,
+              "gdp_bn": 3442.5,
+              "gdp_kind": "actual",
+              "va_direct": 53.7,
+              "jobs_direct": 17183,
+              "share_direct": 1.56,
+              "va_indirect1": 20.3,
+              "jobs_indirect1": 2831,
+              "share_indirect1": 0.59,
+              "va_indirect2": 14.6,
+              "jobs_indirect2": 1706,
+              "share_indirect2": 0.42,
+              "va_total": 88.5,
+              "jobs_total": 21720,
+              "share_total": 2.57,
+              "jobs_share_total": 5.2
+            },
+            {
+              "year": 2018,
+              "kind": "modelled",
+              "spend_bn": 131.3,
+              "gdp_bn": 3638.8,
+              "gdp_kind": "actual",
+              "va_direct": 56.1,
+              "jobs_direct": 17962,
+              "share_direct": 1.54,
+              "va_indirect1": 21.2,
+              "jobs_indirect1": 2959,
+              "share_indirect1": 0.58,
+              "va_indirect2": 15.2,
+              "jobs_indirect2": 1783,
+              "share_indirect2": 0.42,
+              "va_total": 92.5,
+              "jobs_total": 22703,
+              "share_total": 2.54,
+              "jobs_share_total": 5.4
+            },
+            {
+              "year": 2019,
+              "kind": "modelled",
+              "spend_bn": 135.7,
+              "gdp_bn": 3676.2,
+              "gdp_kind": "actual",
+              "va_direct": 57.7,
+              "jobs_direct": 18409,
+              "share_direct": 1.57,
+              "va_indirect1": 21.8,
+              "jobs_indirect1": 3042,
+              "share_indirect1": 0.59,
+              "va_indirect2": 15.7,
+              "jobs_indirect2": 1836,
+              "share_indirect2": 0.43,
+              "va_total": 95.2,
+              "jobs_total": 23286,
+              "share_total": 2.59,
+              "jobs_share_total": 5.5
+            },
+            {
+              "year": 2020,
+              "kind": "modelled",
+              "spend_bn": 83.4,
+              "gdp_bn": 3599.1,
+              "gdp_kind": "actual",
+              "va_direct": 35.6,
+              "jobs_direct": 11357,
+              "share_direct": 0.99,
+              "va_indirect1": 13.4,
+              "jobs_indirect1": 1875,
+              "share_indirect1": 0.37,
+              "va_indirect2": 9.7,
+              "jobs_indirect2": 1131,
+              "share_indirect2": 0.27,
+              "va_total": 58.6,
+              "jobs_total": 14362,
+              "share_total": 1.63,
+              "jobs_share_total": 3.4
+            },
+            {
+              "year": 2021,
+              "kind": "modelled",
+              "spend_bn": 84.9,
+              "gdp_bn": 3757.4,
+              "gdp_kind": "actual",
+              "va_direct": 36.1,
+              "jobs_direct": 11527,
+              "share_direct": 0.96,
+              "va_indirect1": 13.6,
+              "jobs_indirect1": 1905,
+              "share_indirect1": 0.36,
+              "va_indirect2": 9.8,
+              "jobs_indirect2": 1150,
+              "share_indirect2": 0.26,
+              "va_total": 59.6,
+              "jobs_total": 14582,
+              "share_total": 1.59,
+              "jobs_share_total": 3.5
+            },
+            {
+              "year": 2022,
+              "kind": "modelled",
+              "spend_bn": 105.8,
+              "gdp_bn": 3547.8,
+              "gdp_kind": "actual",
+              "va_direct": 45,
+              "jobs_direct": 14329,
+              "share_direct": 1.27,
+              "va_indirect1": 17,
+              "jobs_indirect1": 2370,
+              "share_indirect1": 0.48,
+              "va_indirect2": 12.2,
+              "jobs_indirect2": 1431,
+              "share_indirect2": 0.34,
+              "va_total": 74.2,
+              "jobs_total": 18129,
+              "share_total": 2.09,
+              "jobs_share_total": 4.3
+            },
+            {
+              "year": 2023,
+              "kind": "modelled",
+              "spend_bn": 122.5,
+              "gdp_bn": 3954.2,
+              "gdp_kind": "actual",
+              "va_direct": 51.9,
+              "jobs_direct": 16509,
+              "share_direct": 1.31,
+              "va_indirect1": 19.6,
+              "jobs_indirect1": 2735,
+              "share_indirect1": 0.5,
+              "va_indirect2": 14.1,
+              "jobs_indirect2": 1653,
+              "share_indirect2": 0.36,
+              "va_total": 85.6,
+              "jobs_total": 20897,
+              "share_total": 2.17,
+              "jobs_share_total": 4.9
+            },
+            {
+              "year": 2024,
+              "kind": "modelled",
+              "spend_bn": 151.3,
+              "gdp_bn": 4015.7,
+              "gdp_kind": "nowcast",
+              "va_direct": 64.6,
+              "jobs_direct": 20698,
+              "share_direct": 1.61,
+              "va_indirect1": 24.4,
+              "jobs_indirect1": 3410,
+              "share_indirect1": 0.61,
+              "va_indirect2": 17.6,
+              "jobs_indirect2": 2055,
+              "share_indirect2": 0.44,
+              "va_total": 106.6,
+              "jobs_total": 26163,
+              "share_total": 2.66,
+              "jobs_share_total": 6.1
+            },
+            {
+              "year": 2025,
+              "kind": "modelled",
+              "spend_bn": 198.7,
+              "gdp_bn": 4078,
+              "gdp_kind": "nowcast",
+              "va_direct": 84.3,
+              "jobs_direct": 26820,
+              "share_direct": 2.07,
+              "va_indirect1": 31.8,
+              "jobs_indirect1": 4440,
+              "share_indirect1": 0.78,
+              "va_indirect2": 22.9,
+              "jobs_indirect2": 2683,
+              "share_indirect2": 0.56,
+              "va_total": 139,
+              "jobs_total": 33943,
+              "share_total": 3.41,
+              "jobs_share_total": 7.9
+            },
+            {
+              "year": 2026,
+              "kind": "forecast",
+              "spend_bn": 204.3,
+              "gdp_bn": 4141.4,
+              "gdp_kind": "forecast",
+              "va_direct": 86.7,
+              "jobs_direct": 27577,
+              "share_direct": 2.09,
+              "va_indirect1": 32.7,
+              "jobs_indirect1": 4566,
+              "share_indirect1": 0.79,
+              "va_indirect2": 23.6,
+              "jobs_indirect2": 2758,
+              "share_indirect2": 0.57,
+              "va_total": 142.9,
+              "jobs_total": 34900,
+              "share_total": 3.45,
+              "jobs_share_total": 8.2,
+              "range": {
+                "va": [
+                  136.2,
+                  148.2
+                ],
+                "share": [
+                  3.29,
+                  3.58
+                ],
+                "jobs": [
+                  33264,
+                  36184
+                ],
+                "spend_bn": [
+                  194.7,
+                  211.8
+                ]
+              }
+            },
+            {
+              "year": 2027,
+              "kind": "forecast",
+              "spend_bn": 210.4,
+              "gdp_bn": 4205.7,
+              "gdp_kind": "forecast",
+              "va_direct": 89.3,
+              "jobs_direct": 28404,
+              "share_direct": 2.12,
+              "va_indirect1": 33.7,
+              "jobs_indirect1": 4703,
+              "share_indirect1": 0.8,
+              "va_indirect2": 24.3,
+              "jobs_indirect2": 2841,
+              "share_indirect2": 0.58,
+              "va_total": 147.2,
+              "jobs_total": 35947,
+              "share_total": 3.5,
+              "jobs_share_total": 8.4,
+              "range": {
+                "va": [
+                  137.6,
+                  158
+                ],
+                "share": [
+                  3.27,
+                  3.76
+                ],
+                "jobs": [
+                  33597,
+                  38572
+                ],
+                "spend_bn": [
+                  196.7,
+                  225.8
+                ]
+              }
+            },
+            {
+              "year": 2028,
+              "kind": "forecast",
+              "spend_bn": 216.7,
+              "gdp_bn": 4271,
+              "gdp_kind": "forecast",
+              "va_direct": 91.9,
+              "jobs_direct": 29256,
+              "share_direct": 2.15,
+              "va_indirect1": 34.7,
+              "jobs_indirect1": 4844,
+              "share_indirect1": 0.81,
+              "va_indirect2": 25,
+              "jobs_indirect2": 2926,
+              "share_indirect2": 0.59,
+              "va_total": 151.6,
+              "jobs_total": 37026,
+              "share_total": 3.55,
+              "jobs_share_total": 8.7,
+              "range": {
+                "va": [
+                  139,
+                  168.4
+                ],
+                "share": [
+                  3.25,
+                  3.94
+                ],
+                "jobs": [
+                  33933,
+                  41117
+                ],
+                "spend_bn": [
+                  198.6,
+                  240.7
+                ]
+              }
+            },
+            {
+              "year": 2029,
+              "kind": "forecast",
+              "spend_bn": 223.2,
+              "gdp_bn": 4337.4,
+              "gdp_kind": "forecast",
+              "va_direct": 94.7,
+              "jobs_direct": 30134,
+              "share_direct": 2.18,
+              "va_indirect1": 35.7,
+              "jobs_indirect1": 4989,
+              "share_indirect1": 0.82,
+              "va_indirect2": 25.8,
+              "jobs_indirect2": 3014,
+              "share_indirect2": 0.59,
+              "va_total": 156.2,
+              "jobs_total": 38137,
+              "share_total": 3.6,
+              "jobs_share_total": 8.9,
+              "range": {
+                "va": [
+                  140.3,
+                  179.5
+                ],
+                "share": [
+                  3.24,
+                  4.14
+                ],
+                "jobs": [
+                  34272,
+                  43831
+                ],
+                "spend_bn": [
+                  200.6,
+                  256.6
+                ]
+              }
+            }
+          ],
+          "benchmarks": [
+            {
+              "year": 2019,
+              "label": "prefecture's own 2019 estimate",
+              "va": 101.8,
+              "share": 2.8,
+              "jobs": 23320
+            }
+          ],
+          "note": "Each year's visitor spend (calendar year) run through the same 2020 model and split into the three rounds; share = GDP added ÷ that fiscal year's Fukui GDP (from FY2024 estimated at Fukui's own FY2011–23 trend). The spend series steps up in 2016 when its estimate changed, so compare earlier years with care. Projection: base 2026 = visitors +2.9% and guest-nights −2.0% (the team's monthly forecast) plus 2.2% prices = +2.8%, then +3% a year; low −2% then +1% a year; high +6.6% a year, the 2019–25 pace. White ring: the prefecture's own 2019 estimate, made with the 2015 table and higher local sourcing.",
+          "source": "福井県観光客入込数（推計）令和7年, table 8 (spend 2014–2025), https://www.pref.fukui.lg.jp/doc/kankou/fukuiken-kankoukyakusu_d/fil/024.pdf; Fukui R2 IO tool; 観光を取り巻く状況 p.18 (2019 estimate), https://www.pref.fukui.lg.jp/doc/kankou/visionsakutei_d/fil/1_04.pdf"
+        },
+        {
+          "id": "q1-ripple",
+          "type": "ripple",
+          "span": 12,
+          "status": "modelled",
+          "badge": "New",
+          "title": "How ¥198.7bn of visitor spend ripples through Fukui, 2025",
+          "year": "2025",
+          "spend_bn": 198.7,
+          "retained_bn": 158.7,
+          "leak_bn": 40,
+          "tiers": [
+            {
+              "id": "direct",
+              "what": "Visitors pay hotels, restaurants, shops, transport and attractions in Fukui.",
+              "output_bn": 158.7,
+              "va_bn": 84.3,
+              "income_bn": 50.3,
+              "jobs": 26820,
+              "top": [
+                {
+                  "sector": "Hotels, restaurants & leisure",
+                  "va_bn": 61.8,
+                  "jobs": 22176
+                },
+                {
+                  "sector": "Transport & post",
+                  "va_bn": 11.8,
+                  "jobs": 1642
+                },
+                {
+                  "sector": "Wholesale & retail",
+                  "va_bn": 6.7,
+                  "jobs": 1354
+                },
+                {
+                  "sector": "Farming & fishing",
+                  "va_bn": 1.4,
+                  "jobs": 959
+                },
+                {
+                  "sector": "Food & beverages",
+                  "va_bn": 1.2,
+                  "jobs": 414
+                }
+              ]
+            },
+            {
+              "id": "indirect1",
+              "what": "Those businesses buy supplies and services from other Fukui firms, and so on down the chain.",
+              "output_bn": 54.5,
+              "va_bn": 31.8,
+              "income_bn": 15.8,
+              "jobs": 4440,
+              "top": [
+                {
+                  "sector": "Business services",
+                  "va_bn": 5.2,
+                  "jobs": 806
+                },
+                {
+                  "sector": "Real estate (incl. housing)",
+                  "va_bn": 4.9,
+                  "jobs": 52
+                },
+                {
+                  "sector": "Wholesale & retail",
+                  "va_bn": 4.8,
+                  "jobs": 976
+                },
+                {
+                  "sector": "Transport & post",
+                  "va_bn": 4.4,
+                  "jobs": 607
+                },
+                {
+                  "sector": "Finance & insurance",
+                  "va_bn": 2.1,
+                  "jobs": 138
+                }
+              ]
+            },
+            {
+              "id": "indirect2",
+              "what": "Wages from the first two rounds (¥66.1bn, 57% spent) buy housing, shopping, health care and more.",
+              "output_bn": 35.3,
+              "va_bn": 22.9,
+              "income_bn": 10.1,
+              "jobs": 2683,
+              "top": [
+                {
+                  "sector": "Real estate (incl. housing)",
+                  "va_bn": 7.8,
+                  "jobs": 82
+                },
+                {
+                  "sector": "Wholesale & retail",
+                  "va_bn": 3,
+                  "jobs": 599
+                },
+                {
+                  "sector": "Finance & insurance",
+                  "va_bn": 2.2,
+                  "jobs": 142
+                },
+                {
+                  "sector": "Health & welfare",
+                  "va_bn": 2.1,
+                  "jobs": 369
+                },
+                {
+                  "sector": "Hotels, restaurants & leisure",
+                  "va_bn": 1.7,
+                  "jobs": 626
+                }
+              ]
+            }
+          ],
+          "total": {
+            "output_bn": 248.5,
+            "va_bn": 139,
+            "income_bn": 76.2,
+            "jobs": 33943,
+            "share_pct": 3.41,
+            "jobs_share_pct": 7.9,
+            "multiplier_spend": 1.25,
+            "multiplier_direct": 1.57
+          },
+          "note": "Direct = spend that becomes output of Fukui businesses; indirect ① = what they buy from other Fukui firms, round after round (第1次間接波及効果); indirect ② = the part of the extra wages households spend in Fukui (第2次間接波及効果). Spend is split by the 2025 unit-spend mix (table 7): accommodation ¥48.7bn → hotels; souvenirs ¥47.0bn → food and drink 60%, fresh seafood and produce 15%, crafts and eyewear 15%, textiles 5%, knives 5%; meals, admissions and local transport ¥103.1bn → hotels, restaurants and leisure 75%, transport 25% (assumed split). Purchaser prices with trade and freight margins moved to commerce and transport, as the tool does; the table's self-sufficiency rates decide what stays in Fukui (souvenirs made in Fukui at 50% instead: GDP ¥143.4bn, 35,200 jobs). Second round: employee income × 0.572 (Fukui City households' propensity to consume, 2024) × household spending mix.",
+          "source": "Fukui Prefecture 経済波及効果分析ツール (令和2年福井県産業連関表, 37 sectors, [I−(I−M)A]⁻¹ inverse), https://www.pref.fukui.lg.jp/doc/toukei-jouhou/hakyukouka_d/fil/01.xlsx. Replica checked against the tool's published ¥10bn construction example (02.pdf): same result to within 0.01%."
+        },
+        {
+          "id": "q1-whatif",
+          "type": "what_if",
+          "span": 12,
+          "status": "modelled",
+          "badge": "New",
+          "title": "If tourism spend changes",
+          "base_year": "2025",
+          "base_spend_bn": 198.7,
+          "base_va_bn": 139,
+          "base_jobs": 33943,
+          "gdp_bn": 4078,
+          "workers": 427326,
+          "per_bn": {
+            "va_bn": 0.6995,
+            "jobs": 170.8,
+            "output_bn": 1.2508,
+            "income_bn": 0.3835
+          },
+          "min_pct": -30,
+          "max_pct": 50,
+          "step_pct": 1,
+          "default_pct": 10,
+          "note": "Linear, as input-output models are: it assumes rooms, staff and suppliers can keep up, and holds 2025 prices and GDP (FY2025 estimate). A yen spent on stays adds more GDP (≈¥0.74) than a day-trip yen (≈¥0.66), because day trips put more into souvenirs, many made outside Fukui.",
+          "source": "Same model; per ¥1bn effects from the 2025 spend mix."
+        },
+        {
+          "id": "q1-progress",
+          "type": "progress",
+          "span": 7,
+          "status": "real",
+          "hidden": true,
+          "title": "Progress to the Next Fukui Tourism Vision targets",
+          "note": "Share of the way from the 2023 baseline to the 2029 target. Both are calendar years, as in the vision's KPI table. Tick = time elapsed to 2025 (2 of 6 years = 33%). Red if behind.",
+          "elapsed_share": 0.3333333333333333,
+          "rows": [
+            {
+              "label": "Visitors",
+              "baseline": 17.6,
+              "current": 21.44,
+              "target": 21,
+              "unit": "M",
+              "prefix": "",
+              "current_year": "2025",
+              "source": "入込数 令和7年: 21,443千人, 実人数 (2024: 20.69M). https://www.pref.fukui.lg.jp/doc/kankou/fukuiken-kankoukyakusu_d/fil/024.pdf"
+            },
+            {
+              "label": "Tourism spend",
+              "baseline": 122.5,
+              "current": 198.7,
+              "target": 170,
+              "unit": "bn",
+              "prefix": "¥",
+              "current_year": "2025",
+              "source": "入込数 令和7年: 観光消費額 1,987億円 (2024: ¥151.3bn). https://www.pref.fukui.lg.jp/doc/kankou/fukuiken-kankoukyakusu_d/fil/024.pdf"
+            },
+            {
+              "label": "Spend per overnight guest",
+              "baseline": 21587,
+              "current": 30221,
+              "target": 27000,
+              "unit": "",
+              "prefix": "¥",
+              "current_year": "2025",
+              "source": "入込数 令和7年: 1人当たり観光消費額単価, 合計 宿泊 (2024: ¥24,913). https://www.pref.fukui.lg.jp/doc/kankou/fukuiken-kankoukyakusu_d/fil/024.pdf"
+            },
+            {
+              "label": "Overnight guest-nights (the vision's 県内宿泊者数)",
+              "baseline": 3.24,
+              "current": 3.93,
+              "target": 4.5,
+              "unit": "M",
+              "prefix": "",
+              "current_year": "2025",
+              "source": "JTA 宿泊旅行統計調査 2025 確定: 3,929,570 guest-nights (延べ). The vision's progress report used the earlier 速報 3.87M; 2024 was 4.03M. https://www.mlit.go.jp/kankocho/content/002010555.pdf"
+            },
+            {
+              "label": "Foreign guest-nights (the vision's 外国人宿泊者数)",
+              "baseline": 65,
+              "current": 108.6,
+              "target": 400,
+              "unit": "k",
+              "prefix": "",
+              "current_year": "2025",
+              "source": "JTA 宿泊旅行統計調査 2025 確定: 108,550 guest-nights (延べ). The vision's progress report used the earlier 速報 110k; 2024 was 92k. https://www.mlit.go.jp/kankocho/content/002010555.pdf"
+            }
+          ],
+          "baseline_year": "2023",
+          "target_year": "2029",
+          "source": "ネクストふくい観光ビジョン (Mar 2025), KPI table p.9: baseline 2023, target 2029, both calendar years. https://www.pref.fukui.lg.jp/doc/kankou/newvision_d/fil/4_02.pdf"
+        },
+        {
+          "id": "q1-moves",
+          "type": "formula_table",
+          "span": 5,
+          "status": "modelled",
+          "hidden": true,
+          "title": "What moves the total",
+          "note": "Extra tourism spend per year from one lever, all else equal.",
+          "rows": [
+            {
+              "lever": "Overnight share +1pt (11.1% → 12.1%)",
+              "formula": "21.44M × 0.01 × ¥24,675",
+              "terms": [
+                21440000,
+                0.01,
+                24675
+              ]
+            },
+            {
+              "lever": "Spend per overnight guest +¥1,000",
+              "formula": "2.385M × ¥1,000",
+              "terms": [
+                2385000,
+                1000
+              ]
+            },
+            {
+              "lever": "Spend per day-tripper +¥500",
+              "formula": "19.06M × ¥500",
+              "terms": [
+                19060000,
+                500
+              ]
+            },
+            {
+              "lever": "Foreign overnight +10k",
+              "formula": "10k × ¥43,000",
+              "terms": [
+                10000,
+                43000
+              ]
+            },
+            {
+              "lever": "Visitors +1% (all day-trippers)",
+              "formula": "21.44M × 0.01 × ¥5,546",
+              "terms": [
+                21440000,
+                0.01,
+                5546
+              ]
+            }
+          ],
+          "source": "2025 inputs from 福井県観光客入込数 令和7年: 21.44M visitors, 2.385M overnight, 19.06M day-trippers. ¥24,675 = ¥30,221 − ¥5,546, the extra spend when a day-tripper stays the night instead. ¥43,000 per foreign visitor: Bank of Japan Kanazawa Branch (Apr 2026), from the team brief, not yet checked against the source."
+        },
+        {
+          "id": "q1-sleep",
+          "type": "bars",
+          "span": 12,
+          "status": "pending",
+          "hidden": true,
+          "title": "Where visitors sleep",
+          "note": "Share of Fukui's visitors by where they spend the night: the overnight leakage to Kanazawa and Kyoto that drives \"Spend lost to neighbouring stays\". Filled from KDDI location data once purchased; no numbers until then.",
+          "pending_on": "KDDI location data",
+          "unit": "%",
+          "rows": [
+            {
+              "label": "Stay in Fukui",
+              "value": null
+            },
+            {
+              "label": "Kanazawa",
+              "value": null
+            },
+            {
+              "label": "Kyoto",
+              "value": null
+            },
+            {
+              "label": "Day trip, no overnight stay",
+              "value": null
+            }
+          ]
+        }
+      ],
+      "spec": {
+        "data": "Vision KPI table; 入込数 (spend 2014–2025, 2025 unit-spend mix); input-output table 産業連関表 (R2 tool, 37 sectors); ESRI prefectural GDP FY2011–23; Sakura survey + KDDI.",
+        "model": "Ripple = spend by category → sectors (purchaser prices, margins stripped) × [I−(I−M)A]⁻¹ for suppliers; wage spending = employee income × 0.572 × household mix, × inverse. Share = GDP added ÷ prefectural GDP; Fukui GDP after FY2023 grown at its own FY2011–23 trend.",
+        "outputs": "Fukui GDP vs tourism contribution FY2014–2029; tourism share of GDP and jobs 2014–2029; ripple by round and sector; what-if slider.",
+        "acceptance": "Every figure states its definition (実人数 vs 延べ, fiscal vs calendar) and matches the Federation report; the IO replica reproduces the prefecture's published tool example.",
+        "status": "Share, jobs and ripple estimated with the prefecture's R2 tool (prototype)."
+      }
+    },
+    {
+      "id": "q2",
+      "number": 2,
+      "nav": "Visitor Flow and Forecast",
+      "title": "Visitor Flow and Forecast",
+      "question": "How can we predict visitor flow?",
+      "why": "Staff sites despite labour shortages, time buses and promotion, avoid peaks, fill quiet months (required DMO measure).",
+      "subs": [
+        "How many visitors tomorrow and next week?",
+        "What drives daily visits?",
+        "Demand trend across the year"
+      ],
+      "answer": "Visits follow calendar and online interest; winter weather is where they are lost. Daily site forecast feasible now from EdgeAI cameras; route-by-route movement needs KDDI.",
+      "cards": [
+        {
+          "id": "q2-f1",
+          "type": "forecast",
+          "span": 8,
+          "status": "illustrative",
+          "title": "Daily visitors and 7-day forecast",
+          "note": "Last 8 weeks counted (line) and 7-day forecast (dashed) with shaded range. Markers under the axis = severe weather. Simulated for layout only; not counted data. Do not quote.",
+          "sites": [
+            {
+              "id": "tojinbo",
+              "label": "Tojinbo",
+              "points": [
+                {
+                  "date": "2026-08-03",
+                  "actual": 3146,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-04",
+                  "actual": 3289,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-05",
+                  "actual": 3476,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-06",
+                  "actual": 3154,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-07",
+                  "actual": 3378,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-08",
+                  "actual": 5429,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-09",
+                  "actual": 5848,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-10",
+                  "actual": 3203,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-11",
+                  "actual": 3204,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-12",
+                  "actual": 3256,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-13",
+                  "actual": 3535,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-14",
+                  "actual": 3597,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-15",
+                  "actual": 5402,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-16",
+                  "actual": 6233,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-17",
+                  "actual": 3062,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-18",
+                  "actual": 1837,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": true
+                },
+                {
+                  "date": "2026-08-19",
+                  "actual": 3268,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-20",
+                  "actual": 3089,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-21",
+                  "actual": 3026,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-22",
+                  "actual": 6324,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-23",
+                  "actual": 5400,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-24",
+                  "actual": 3333,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-25",
+                  "actual": 2995,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-26",
+                  "actual": 3172,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-27",
+                  "actual": 3233,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-28",
+                  "actual": 2919,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-29",
+                  "actual": 5921,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-30",
+                  "actual": 5828,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-31",
+                  "actual": 3304,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-01",
+                  "actual": 3272,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-02",
+                  "actual": 3257,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-03",
+                  "actual": 3143,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-04",
+                  "actual": 1630,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": true
+                },
+                {
+                  "date": "2026-09-05",
+                  "actual": 4915,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-06",
+                  "actual": 4611,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-07",
+                  "actual": 2757,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-08",
+                  "actual": 2643,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-09",
+                  "actual": 2588,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-10",
+                  "actual": 2931,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-11",
+                  "actual": 2704,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-12",
+                  "actual": 5234,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-13",
+                  "actual": 4980,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-14",
+                  "actual": 2961,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-15",
+                  "actual": 2709,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-16",
+                  "actual": 3086,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-17",
+                  "actual": 2725,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-18",
+                  "actual": 1590,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": true
+                },
+                {
+                  "date": "2026-09-19",
+                  "actual": 4960,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-20",
+                  "actual": 5524,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-21",
+                  "actual": 2722,
+                  "forecast": 2947,
+                  "lo": 2505,
+                  "hi": 3389,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-22",
+                  "actual": 2963,
+                  "forecast": 2969,
+                  "lo": 2524,
+                  "hi": 3415,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-23",
+                  "actual": 2696,
+                  "forecast": 2993,
+                  "lo": 2544,
+                  "hi": 3442,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-24",
+                  "actual": 3268,
+                  "forecast": 3019,
+                  "lo": 2566,
+                  "hi": 3472,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-25",
+                  "actual": 3129,
+                  "forecast": 3045,
+                  "lo": 2589,
+                  "hi": 3502,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-26",
+                  "actual": 5831,
+                  "forecast": 5377,
+                  "lo": 4570,
+                  "hi": 6183,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-27",
+                  "actual": 4905,
+                  "forecast": 5425,
+                  "lo": 4611,
+                  "hi": 6239,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-28",
+                  "actual": null,
+                  "forecast": 3127,
+                  "lo": 2658,
+                  "hi": 3597,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-29",
+                  "actual": null,
+                  "forecast": 3155,
+                  "lo": 2681,
+                  "hi": 3628,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-30",
+                  "actual": null,
+                  "forecast": 3181,
+                  "lo": 2704,
+                  "hi": 3658,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-10-01",
+                  "actual": null,
+                  "forecast": 3207,
+                  "lo": 2726,
+                  "hi": 3688,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-10-02",
+                  "actual": null,
+                  "forecast": 3231,
+                  "lo": 2746,
+                  "hi": 3715,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-10-03",
+                  "actual": null,
+                  "forecast": 5693,
+                  "lo": 4839,
+                  "hi": 6547,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-10-04",
+                  "actual": null,
+                  "forecast": 5730,
+                  "lo": 4870,
+                  "hi": 6589,
+                  "severe_weather": false
+                }
+              ],
+              "next7": [
+                {
+                  "day": "Mon 28 Sept",
+                  "range": "2,658–3,597",
+                  "action": "Normal"
+                },
+                {
+                  "day": "Tue 29 Sept",
+                  "range": "2,681–3,628",
+                  "action": "Normal"
+                },
+                {
+                  "day": "Wed 30 Sept",
+                  "range": "2,704–3,658",
+                  "action": "Push indoor sites"
+                },
+                {
+                  "day": "Thu 01 Oct",
+                  "range": "2,726–3,688",
+                  "action": "Normal"
+                },
+                {
+                  "day": "Fri 02 Oct",
+                  "range": "2,746–3,715",
+                  "action": "Normal"
+                },
+                {
+                  "day": "Sat 03 Oct",
+                  "range": "4,839–6,547",
+                  "action": "Extend hours"
+                },
+                {
+                  "day": "Sun 04 Oct",
+                  "range": "4,870–6,589",
+                  "action": "Extend hours"
+                }
+              ]
+            },
+            {
+              "id": "fukui_station",
+              "label": "Fukui Station",
+              "points": [
+                {
+                  "date": "2026-08-03",
+                  "actual": 8539,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-04",
+                  "actual": 7477,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-05",
+                  "actual": 8793,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-06",
+                  "actual": 8208,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-07",
+                  "actual": 8454,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-08",
+                  "actual": 10180,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-09",
+                  "actual": 10148,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-10",
+                  "actual": 7824,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-11",
+                  "actual": 8452,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-12",
+                  "actual": 7625,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-13",
+                  "actual": 8851,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-14",
+                  "actual": 8752,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-15",
+                  "actual": 11418,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-16",
+                  "actual": 10946,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-17",
+                  "actual": 7630,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-18",
+                  "actual": 4621,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": true
+                },
+                {
+                  "date": "2026-08-19",
+                  "actual": 7727,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-20",
+                  "actual": 9050,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-21",
+                  "actual": 7701,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-22",
+                  "actual": 11158,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-23",
+                  "actual": 11532,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-24",
+                  "actual": 7414,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-25",
+                  "actual": 8734,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-26",
+                  "actual": 8633,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-27",
+                  "actual": 8773,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-28",
+                  "actual": 8638,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-29",
+                  "actual": 10746,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-30",
+                  "actual": 9953,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-08-31",
+                  "actual": 7324,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-01",
+                  "actual": 7992,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-02",
+                  "actual": 8157,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-03",
+                  "actual": 7362,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-04",
+                  "actual": 4100,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": true
+                },
+                {
+                  "date": "2026-09-05",
+                  "actual": 9109,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-06",
+                  "actual": 9372,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-07",
+                  "actual": 7869,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-08",
+                  "actual": 7350,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-09",
+                  "actual": 7018,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-10",
+                  "actual": 7382,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-11",
+                  "actual": 7527,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-12",
+                  "actual": 9025,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-13",
+                  "actual": 9749,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-14",
+                  "actual": 7070,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-15",
+                  "actual": 6760,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-16",
+                  "actual": 6942,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-17",
+                  "actual": 7944,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-18",
+                  "actual": 4001,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": true
+                },
+                {
+                  "date": "2026-09-19",
+                  "actual": 10450,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-20",
+                  "actual": 9824,
+                  "forecast": null,
+                  "lo": null,
+                  "hi": null,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-21",
+                  "actual": 7966,
+                  "forecast": 7414,
+                  "lo": 6302,
+                  "hi": 8526,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-22",
+                  "actual": 8096,
+                  "forecast": 7471,
+                  "lo": 6350,
+                  "hi": 8592,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-23",
+                  "actual": 7079,
+                  "forecast": 7532,
+                  "lo": 6402,
+                  "hi": 8661,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-24",
+                  "actual": 7816,
+                  "forecast": 7596,
+                  "lo": 6456,
+                  "hi": 8735,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-25",
+                  "actual": 7104,
+                  "forecast": 7662,
+                  "lo": 6513,
+                  "hi": 8812,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-26",
+                  "actual": 10045,
+                  "forecast": 10050,
+                  "lo": 8543,
+                  "hi": 11558,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-27",
+                  "actual": 10256,
+                  "forecast": 10140,
+                  "lo": 8619,
+                  "hi": 11661,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-28",
+                  "actual": null,
+                  "forecast": 7869,
+                  "lo": 6689,
+                  "hi": 9050,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-29",
+                  "actual": null,
+                  "forecast": 7938,
+                  "lo": 6747,
+                  "hi": 9128,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-09-30",
+                  "actual": null,
+                  "forecast": 8004,
+                  "lo": 6804,
+                  "hi": 9205,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-10-01",
+                  "actual": null,
+                  "forecast": 8068,
+                  "lo": 6858,
+                  "hi": 9279,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-10-02",
+                  "actual": null,
+                  "forecast": 8129,
+                  "lo": 6910,
+                  "hi": 9348,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-10-03",
+                  "actual": null,
+                  "forecast": 10642,
+                  "lo": 9045,
+                  "hi": 12238,
+                  "severe_weather": false
+                },
+                {
+                  "date": "2026-10-04",
+                  "actual": null,
+                  "forecast": 10709,
+                  "lo": 9103,
+                  "hi": 12316,
+                  "severe_weather": false
+                }
+              ],
+              "next7": [
+                {
+                  "day": "Mon 28 Sept",
+                  "range": "6,689–9,050",
+                  "action": "Normal"
+                },
+                {
+                  "day": "Tue 29 Sept",
+                  "range": "6,747–9,128",
+                  "action": "Normal"
+                },
+                {
+                  "day": "Wed 30 Sept",
+                  "range": "6,804–9,205",
+                  "action": "Push indoor sites"
+                },
+                {
+                  "day": "Thu 01 Oct",
+                  "range": "6,858–9,279",
+                  "action": "Normal"
+                },
+                {
+                  "day": "Fri 02 Oct",
+                  "range": "6,910–9,348",
+                  "action": "Normal"
+                },
+                {
+                  "day": "Sat 03 Oct",
+                  "range": "9,045–12,238",
+                  "action": "Extend hours"
+                },
+                {
+                  "day": "Sun 04 Oct",
+                  "range": "9,103–12,316",
+                  "action": "Extend hours"
+                }
+              ]
+            }
+          ],
+          "live": true
+        },
+        {
+          "id": "q2-drivers",
+          "type": "bars",
+          "span": 4,
+          "status": "modelled",
+          "title": "What moves daily visits",
+          "note": "Standardised β, 397 days, 4 sites. R² 0.81 in-sample, 0.68 holdout.",
+          "source": "Khanzada & Takemoto (2026), arXiv 2603.21639",
+          "signed": true,
+          "decimals": 3,
+          "rows": [
+            {
+              "label": "Weekend / holiday",
+              "value": 0.547
+            },
+            {
+              "label": "Online interest (directions)",
+              "value": 0.456
+            },
+            {
+              "label": "Month",
+              "value": 0.331
+            },
+            {
+              "label": "Weekend × interest",
+              "value": -0.166
+            },
+            {
+              "label": "Weekend × bad weather",
+              "value": -0.159
+            },
+            {
+              "label": "Sunshine",
+              "value": 0.086
+            },
+            {
+              "label": "Weather severity",
+              "value": -0.05
+            }
+          ]
+        },
+        {
+          "id": "q2-monthly",
+          "type": "monthly_forecast",
+          "span": 12,
+          "status": "modelled",
+          "title": "Monthly visitors and guest-nights: 12-month forecast",
+          "note": "F2 monthly forecast from dhde-preprocessing-model, refreshed daily. Each series uses whichever model had the lowest backtest error (same month last year, its own recent growth, or Ishikawa and Toyama's growth). The range is the 10th-90th percentile of that model's backtest errors. This year's expected total adds the actual months to the forecast for the rest.",
+          "series": [
+            "fukui_pref",
+            "tojinbo",
+            "fukui_station",
+            "katsuyama",
+            "rainbow_line",
+            "eiheiji",
+            "awara_onsen",
+            "fukui_guest_nights",
+            "fukui_guest_nights_japanese",
+            "fukui_guest_nights_foreign"
+          ]
+        },
+        {
+          "id": "q2-pace",
+          "type": "target_pace",
+          "span": 12,
+          "status": "real",
+          "title": "Guest-nights this year: running total vs target",
+          "note": "The vision sets 2029 targets from a 2023 baseline (calendar years). This year's target is the point on a steady-growth path between them; each month's share of the year comes from last year's months. Actuals are JTA monthly figures, refreshed daily; the latest months are preliminary.",
+          "source": "JTA 宿泊旅行統計調査 (monthly, via dhde-preprocessing-model). Targets: ネクストふくい観光ビジョン (Mar 2025), KPI table p.9.",
+          "items": [
+            {
+              "series": "fukui_guest_nights",
+              "label": "All guest-nights",
+              "label_ja": "延べ宿泊者数",
+              "baseline": 3240000,
+              "baseline_year": 2023,
+              "target": 4500000,
+              "target_year": 2029
+            },
+            {
+              "series": "fukui_guest_nights_foreign",
+              "label": "Foreign guest-nights",
+              "label_ja": "外国人延べ宿泊者数",
+              "baseline": 65000,
+              "baseline_year": 2023,
+              "target": 400000,
+              "target_year": 2029
+            }
+          ]
+        },
+        {
+          "id": "q2-even",
+          "type": "monthly_share",
+          "span": 12,
+          "status": "illustrative",
+          "title": "Demand trend across the year",
+          "note": "Monthly share of annual visitors; quietest 3 consecutive months highlighted. Simulated for layout only; not counted data. Do not quote.",
+          "todo": "Swap in the JTA digital tourism statistics monthly series (per city, since 2021-01) once the pipeline publishes it (dhde-preprocessing-model PR #7).",
+          "months": [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+          ],
+          "values": [
+            5.1,
+            5.6,
+            7.4,
+            8.9,
+            10.2,
+            7.3,
+            9.6,
+            12.4,
+            8.8,
+            9.7,
+            8.2,
+            6.8
+          ],
+          "kpi": {
+            "label": "平準化率 (demand levelling rate, JTA DMO KPI 2025)",
+            "value_text": null,
+            "status": "pending"
+          },
+          "series": "fukui_pref",
+          "year": "2025"
+        }
+      ],
+      "spec": {
+        "data": "EdgeAI camera counts (daily, per site); weather-forecast archive; online interest (route searches); Ishikawa guest nights.",
+        "model": "F1 daily site forecast (regularised regression / gradient boosting, 1–7 days); F2 monthly guest-night forecast (ETS / SARIMA with Ishikawa as leading indicator).",
+        "outputs": "Next-7-day range and action per site; monthly guest-night baseline (used by Q5).",
+        "acceptance": "F1 beats \"same weekday last year\" on chronological holdout; MAPE shown; no observed weather or same-day intent in forecasts.",
+        "status": "Needs automated camera feed and weather-forecast archive."
+      }
+    },
+    {
+      "id": "q3",
+      "number": 3,
+      "nav": "Visitor Value",
+      "title": "Visitor Value",
+      "question": "Which visitors bring the most value?",
+      "why": "Target promotion and products at the visitors who stay and spend.",
+      "subs": [
+        "Who spends most?",
+        "Which markets?",
+        "Who stays overnight?"
+      ],
+      "answer": "Overnight guest spends 5.4× a day-tripper, foreign visitor about 8×; 89% of visitors are day-trippers.",
+      "cards": [
+        {
+          "id": "q3-spend",
+          "type": "bars",
+          "span": 6,
+          "status": "real",
+          "title": "Spend per visitor by type",
+          "prefix": "¥",
+          "rows": [
+            {
+              "label": "Day-tripper",
+              "value": 5546
+            },
+            {
+              "label": "Overnight guest",
+              "value": 30221
+            },
+            {
+              "label": "Foreign visitor",
+              "value": 43000
+            }
+          ],
+          "source": "Day-tripper and overnight guest: 福井県観光客入込数 令和7年 (2025), 1人当たり観光消費額単価, 合計. Foreign visitor: Bank of Japan Kanazawa Branch (Apr 2026), from the team brief, not yet checked against the source."
+        },
+        {
+          "id": "q3-markets",
+          "type": "bars",
+          "span": 6,
+          "status": "pending",
+          "title": "Foreign overnight guests by market",
+          "pending_on": "JTA nationality breakdown",
+          "rows": [
+            {
+              "label": "Taiwan",
+              "value": null
+            },
+            {
+              "label": "Hong Kong",
+              "value": null
+            },
+            {
+              "label": "China",
+              "value": null
+            },
+            {
+              "label": "Western",
+              "value": null
+            },
+            {
+              "label": "SE Asia",
+              "value": null
+            },
+            {
+              "label": "Other",
+              "value": null
+            }
+          ]
+        },
+        {
+          "id": "q3-heat",
+          "type": "heatmap",
+          "span": 12,
+          "status": "illustrative",
+          "title": "Who stays overnight",
+          "note": "Share staying overnight (%), travel group × origin. Cells with n < 30 hidden (model F3). Simulated for layout only; not counted data. Do not quote.",
+          "unit": "%",
+          "min_n": 30,
+          "rows": [
+            "Solo",
+            "Couple",
+            "Family",
+            "Friends",
+            "Group tour"
+          ],
+          "cols": [
+            "Fukui pref.",
+            "Hokuriku",
+            "Kansai",
+            "Chubu",
+            "Kanto",
+            "Other Japan",
+            "Overseas"
+          ],
+          "cells": [
+            [
+              {
+                "value": 4,
+                "n": 141
+              },
+              {
+                "value": 10,
+                "n": 41
+              },
+              {
+                "value": 18,
+                "n": 87
+              },
+              {
+                "value": 19,
+                "n": 117
+              },
+              {
+                "value": 26,
+                "n": 88
+              },
+              {
+                "value": 29,
+                "n": 101
+              },
+              {
+                "value": 35,
+                "n": 46
+              }
+            ],
+            [
+              {
+                "value": 10,
+                "n": 111
+              },
+              {
+                "value": 17,
+                "n": 20
+              },
+              {
+                "value": 20,
+                "n": 78
+              },
+              {
+                "value": 26,
+                "n": 125
+              },
+              {
+                "value": 24,
+                "n": 84
+              },
+              {
+                "value": 34,
+                "n": 108
+              },
+              {
+                "value": 36,
+                "n": 93
+              }
+            ],
+            [
+              {
+                "value": 17,
+                "n": 139
+              },
+              {
+                "value": 17,
+                "n": 59
+              },
+              {
+                "value": 25,
+                "n": 59
+              },
+              {
+                "value": 23,
+                "n": 54
+              },
+              {
+                "value": 29,
+                "n": 53
+              },
+              {
+                "value": 37,
+                "n": 90
+              },
+              {
+                "value": 40,
+                "n": 135
+              }
+            ],
+            [
+              {
+                "value": 13,
+                "n": 50
+              },
+              {
+                "value": 21,
+                "n": 83
+              },
+              {
+                "value": 24,
+                "n": 39
+              },
+              {
+                "value": 32,
+                "n": 20
+              },
+              {
+                "value": 32,
+                "n": 60
+              },
+              {
+                "value": 38,
+                "n": 141
+              },
+              {
+                "value": 41,
+                "n": 35
+              }
+            ],
+            [
+              {
+                "value": 19,
+                "n": 52
+              },
+              {
+                "value": 23,
+                "n": 71
+              },
+              {
+                "value": 27,
+                "n": 86
+              },
+              {
+                "value": 33,
+                "n": 45
+              },
+              {
+                "value": 39,
+                "n": 76
+              },
+              {
+                "value": 43,
+                "n": 101
+              },
+              {
+                "value": 45,
+                "n": 84
+              }
+            ]
+          ]
+        },
+        {
+          "id": "q3-nights",
+          "type": "guest_nights_months",
+          "span": 12,
+          "status": "real",
+          "title": "Guest-nights by month: domestic and foreign",
+          "note": "Guest-nights (延べ), not people. Domestic = Japanese guests. Last year faded, this year solid; the % above each month is the foreign share. The latest months are preliminary.",
+          "source": "JTA 宿泊旅行統計調査 (monthly, via dhde-preprocessing-model), refreshed daily.",
+          "total": "fukui_guest_nights",
+          "domestic": "fukui_guest_nights_japanese",
+          "foreign": "fukui_guest_nights_foreign"
+        }
+      ],
+      "spec": {
+        "data": "Spend per visitor (福井県観光客入込数 令和7年); JTA nationality statistics; Sakura / FTAS inbound survey.",
+        "model": "F3 logistic regression of staying overnight on travel group, origin, season.",
+        "outputs": "Spend by type; market mix; overnight propensity by segment.",
+        "acceptance": "AUC reported; segments shown only where n ≥ 30.",
+        "status": "Spend by type ready; markets need JTA nationality data; F3 needs survey v2."
+      }
+    },
+    {
+      "id": "q4",
+      "number": 4,
+      "nav": "Visitor Journey",
+      "title": "Visitor Journey",
+      "question": "Where are we losing visitors and spend?",
+      "why": "Fix the stage of the visitor journey that leaks the most value.",
+      "subs": [
+        "Which stage loses the most visitors?",
+        "Can visitors reach the sites?",
+        "Is capacity the constraint?"
+      ],
+      "answer": "Deepest leaks are awareness (search interest 12 vs Ishikawa 100) and overnight stays (11% vs ~39% Kanazawa City). Occupancy 46.5%, so rooms are not the constraint. No direct bus Fukui Station → Tojinbo.",
+      "cards": [
+        {
+          "id": "q4-discover",
+          "type": "search_trends",
+          "span": 12,
+          "status": "real",
+          "title": "Discover: who searches for Fukui before they travel",
+          "markets_label": "Fukui's travel searches vs Ishikawa + Kanazawa, by where the searcher lives (Sep 2025 – Aug 2026; 1.00× = equal)",
+          "markets": [
+            {
+              "label": "Kansai (searchers in Osaka)",
+              "fukui": [
+                51.1,
+                52.3
+              ],
+              "ishikawa": [
+                22.1,
+                80.6
+              ]
+            },
+            {
+              "label": "Chukyo (searchers in Aichi)",
+              "fukui": [
+                50,
+                53.4
+              ],
+              "ishikawa": [
+                23.3,
+                75.2
+              ]
+            },
+            {
+              "label": "Kanto (searchers in Tokyo)",
+              "fukui": [
+                21.6,
+                32.4
+              ],
+              "ishikawa": [
+                16.4,
+                82.3
+              ]
+            },
+            {
+              "label": "All of Japan",
+              "fukui": [
+                28.1,
+                46.1
+              ],
+              "ishikawa": [
+                19.6,
+                77.4
+              ]
+            }
+          ],
+          "trend": {
+            "label": "Monthly travel searches in Japan: Fukui, Ishikawa and Kansai (index)",
+            "months": [
+              "2023-04",
+              "2023-05",
+              "2023-06",
+              "2023-07",
+              "2023-08",
+              "2023-09",
+              "2023-10",
+              "2023-11",
+              "2023-12",
+              "2024-01",
+              "2024-02",
+              "2024-03",
+              "2024-04",
+              "2024-05",
+              "2024-06",
+              "2024-07",
+              "2024-08",
+              "2024-09",
+              "2024-10",
+              "2024-11",
+              "2024-12",
+              "2025-01",
+              "2025-02",
+              "2025-03",
+              "2025-04",
+              "2025-05",
+              "2025-06",
+              "2025-07",
+              "2025-08",
+              "2025-09",
+              "2025-10",
+              "2025-11",
+              "2025-12",
+              "2026-01",
+              "2026-02",
+              "2026-03",
+              "2026-04",
+              "2026-05",
+              "2026-06",
+              "2026-07",
+              "2026-08"
+            ],
+            "fukui": [
+              12.5,
+              11.8,
+              11.3,
+              14.5,
+              14.6,
+              11.8,
+              11.5,
+              11.8,
+              9.8,
+              11,
+              14.5,
+              19.5,
+              11.8,
+              12.4,
+              11.3,
+              14.2,
+              17,
+              13,
+              12.6,
+              12.5,
+              10,
+              10.6,
+              11.8,
+              10,
+              9.6,
+              8.3,
+              8.5,
+              11.4,
+              12.5,
+              10.3,
+              9.6,
+              10.5,
+              8.8,
+              10,
+              9.5,
+              9.3,
+              9.4,
+              10.3,
+              9.5,
+              12.2,
+              14.8
+            ],
+            "ishikawa": [
+              11.3,
+              12.4,
+              9,
+              9.8,
+              10.4,
+              9.3,
+              9.5,
+              9,
+              7.5,
+              35.8,
+              12.3,
+              16.5,
+              9.8,
+              8.6,
+              7.5,
+              7.4,
+              11.3,
+              10.8,
+              7.8,
+              8,
+              6,
+              7.2,
+              7.5,
+              7,
+              7.4,
+              6.5,
+              6.3,
+              7,
+              8.5,
+              7.3,
+              7,
+              7.3,
+              6.2,
+              7.3,
+              7.8,
+              7,
+              7,
+              6.8,
+              6,
+              7.2,
+              10.3
+            ],
+            "kansai": [
+              28.3,
+              28.2,
+              26.3,
+              23,
+              33,
+              28.8,
+              27.8,
+              28.8,
+              24,
+              25,
+              27.3,
+              26.5,
+              27.8,
+              26.8,
+              24.3,
+              25,
+              29.8,
+              26.8,
+              26,
+              26,
+              24.3,
+              26.6,
+              27.3,
+              27.8,
+              32.6,
+              26.8,
+              25,
+              27.6,
+              30.8,
+              30,
+              26.2,
+              26.3,
+              23.4,
+              24,
+              24.3,
+              25,
+              23.8,
+              21.5,
+              21.5,
+              22.8,
+              25
+            ],
+            "events": [
+              {
+                "month": "2024-01",
+                "label": "Noto earthquake"
+              },
+              {
+                "month": "2024-03",
+                "label": "Shinkansen to Fukui"
+              }
+            ]
+          },
+          "insight": "Fukui is found by Kansai and Chukyo, not by Tokyo or abroad. Searchers in Osaka and Aichi look for Fukui as much as for Ishikawa + Kanazawa (1.01× and 1.05×); in Tokyo it is 0.55×, and abroad Fukui barely registers. For Kansai and Chukyo the gap is the stay (see the visitor flow below); for Tokyo and abroad it is being found at all.",
+          "as_of": "Fixed snapshot: Google Trends pulled 29 Sep 2026. It will update weekly after the interim presentation.",
+          "note": "A search index (0–100 within each query), not a number of people, so it sits beside the visitor flow rather than feeding it. Monthly averages of weekly values; topics, not keywords (福井県 + 福井市 vs 石川県 + 金沢市).",
+          "source": "Google Trends (trends.google.com), pulled 29 Sep 2026; research by Gabriella."
+        },
+        {
+          "id": "q4-decide",
+          "type": "indicators",
+          "span": 12,
+          "status": "real",
+          "title": "Decide: can an interested traveller book Fukui?",
+          "items": [
+            {
+              "value_text": "5 vs 56",
+              "label": "Fukui vs Himeji in \"day trip from Kyoto / Osaka\" listings",
+              "severity": "crit",
+              "status": "real"
+            },
+            {
+              "value_text": "5 vs 23",
+              "label": "Fukui vs Shirakawa-go in day trips from Kanazawa, 25 minutes away",
+              "severity": "warn",
+              "status": "real"
+            },
+            {
+              "value_text": "7 vs 68",
+              "label": "Products that include a night, Fukui vs Shirakawa-go",
+              "severity": "crit",
+              "status": "real"
+            },
+            {
+              "value_text": "0 of 27",
+              "label": "Fukui products on Viator with a stay (Kanazawa: 132)",
+              "severity": "warn",
+              "status": "real"
+            }
+          ],
+          "note": "Fukui is bookable, but not where travellers decide. Its 60 products match its low search interest, so more listings alone won't fix it. The gaps are the gateway shelf (day trips from Kyoto, Osaka and Kanazawa) and the stay. Snapshot: one check per platform, 25–27 Sep 2026; Fukui is the whole prefecture, the others are cities or a village.",
+          "source": "Team audit of GetYourGuide, Klook, KKday and Viator, 25–27 Sep 2026; research by Gabriella."
+        },
+        {
+          "id": "q4-flow",
+          "type": "sankey",
+          "span": 12,
+          "status": "real",
+          "title": "Where visitors come from, whether they stay the night, and what they spend (2025)",
+          "unit": "k visitors",
+          "nodes": [
+            {
+              "id": "fukui",
+              "label": "Fukui",
+              "label_ja": "福井県内"
+            },
+            {
+              "id": "kansai",
+              "label": "Kansai",
+              "label_ja": "関西"
+            },
+            {
+              "id": "chukyo",
+              "label": "Chukyo",
+              "label_ja": "中京"
+            },
+            {
+              "id": "hokuriku",
+              "label": "Hokuriku",
+              "label_ja": "北陸"
+            },
+            {
+              "id": "kanto",
+              "label": "Kanto",
+              "label_ja": "関東"
+            },
+            {
+              "id": "other",
+              "label": "Other",
+              "label_ja": "その他"
+            },
+            {
+              "id": "res",
+              "label": "Fukui residents",
+              "label_ja": "県内客"
+            },
+            {
+              "id": "out",
+              "label": "From outside Fukui",
+              "label_ja": "県外客"
+            },
+            {
+              "id": "day",
+              "label": "Day trip",
+              "label_ja": "日帰り"
+            },
+            {
+              "id": "night",
+              "label": "Overnight",
+              "label_ja": "宿泊"
+            }
+          ],
+          "links": [
+            [
+              "fukui",
+              "res",
+              12592
+            ],
+            [
+              "kansai",
+              "out",
+              3363
+            ],
+            [
+              "chukyo",
+              "out",
+              2289
+            ],
+            [
+              "hokuriku",
+              "out",
+              1584
+            ],
+            [
+              "kanto",
+              "out",
+              952
+            ],
+            [
+              "other",
+              "out",
+              663
+            ],
+            [
+              "res",
+              "day",
+              12168
+            ],
+            [
+              "res",
+              "night",
+              424
+            ],
+            [
+              "out",
+              "day",
+              6890
+            ],
+            [
+              "out",
+              "night",
+              1961
+            ]
+          ],
+          "insight": "The leak is the stay, not the arrival: 8.85M visitors came from outside Fukui in 2025, but only 1.96M (22%) stayed the night. Foreign visitors aren't split out in Fukui's counts, so they're shown on their own below, not added.",
+          "insight_ja": "流出は来訪ではなく宿泊：2025年、県外から885万人が訪れたが、宿泊したのは196万人（22%）のみ。県の統計は外国人を分けていないため、外国人は下に別に示し、合計には加えない。",
+          "zoom": {
+            "label": "Foreign visitors, 2025 (JTA inbound survey, estimated split): shown apart, not added",
+            "label_ja": "外国人来訪者 2025年（観光庁の訪日調査、内訳は推計）：別に表示し、合計には加えない",
+            "total": 86,
+            "parts": [
+              {
+                "label": "Day trip",
+                "label_ja": "日帰り",
+                "value": 14,
+                "low": 2,
+                "high": 32
+              },
+              {
+                "label": "Overnight",
+                "label_ja": "宿泊",
+                "value": 72,
+                "low": 54,
+                "high": 84
+              }
+            ]
+          },
+          "note": "Visitors counted once each (Hokuriku = Ishikawa and Toyama) (実人数), in thousands; the total is Fukui's 21.44M. Answers Q3 (who stays) and Q4 (where the stay leaks). Foreign visitors come from another source and are shown separately; their day-trip/overnight split is estimated.",
+          "source": "Fukui Pref. 観光客入込数（推計）令和7年: day trip / overnight by 県内 / 県外 (p.3) and 県外客 by region of origin (p.8), and 観光消費額 by 県内 / 県外 × day trip / overnight (p.10). Foreign: JTA インバウンド消費動向調査 2025 (86k visitors); stay split estimated. Kansai = 県外客 minus the other regions.",
+          "alt": {
+            "label": "Spend",
+            "label_ja": "消費額",
+            "base_label": "Visitors",
+            "base_label_ja": "来訪者数",
+            "unit": "oku_yen",
+            "links": [
+              [
+                "res",
+                "day",
+                439
+              ],
+              [
+                "res",
+                "night",
+                125
+              ],
+              [
+                "out",
+                "day",
+                618
+              ],
+              [
+                "out",
+                "night",
+                805
+              ]
+            ],
+            "insight": "Visitors from outside Fukui who stay the night are 9% of visitors but bring 40% of all tourism spend (¥80.5bn of ¥198.7bn). Each extra overnight guest from outside is worth far more than a day trip.",
+            "insight_ja": "県外からの宿泊客は来訪者の9%だが、観光消費額の40%（1,987億円のうち805億円）を占める。県外宿泊客が1人増える価値は日帰り客よりはるかに大きい。",
+            "note": "Spend by region of origin isn't published, so this view starts at the groups. Fukui's ¥198.7bn doesn't separate foreign spend; JTA's inbound survey puts it at about ¥3.7bn (86k visitors × about ¥43k), a different source that isn't added here and isn't verified yet.",
+            "note_ja": "発地別の消費額は公表されていないため、この表示は区分から始まる。県の1,987億円は外国人の消費を分けていない。観光庁の訪日調査では約37億円（8.6万人×約4.3万円）だが、別の出典のためここには加えず、未確認。"
+          }
+        },
+        {
+          "id": "q4-funnel",
+          "type": "funnel",
+          "hidden": true,
+          "span": 12,
+          "status": "modelled",
+          "title": "Visitor funnel: gap vs Kanazawa and value at stake",
+          "note": "Stage gap = 1 − Fukui ÷ Kanazawa. Value at stake = visitors lost × spend difference.",
+          "stages": [
+            {
+              "stage": "Discover",
+              "gap_pct": 88,
+              "evidence": "Search interest 12 vs 100",
+              "value_text": null
+            },
+            {
+              "stage": "Decide",
+              "gap_pct": null,
+              "evidence": "Bookable products (audit pending)",
+              "value_text": null
+            },
+            {
+              "stage": "Reach / Explore",
+              "gap_pct": null,
+              "evidence": "No direct bus Fukui Station → Tojinbo",
+              "value_text": null
+            },
+            {
+              "stage": "Stay",
+              "gap_pct": 72,
+              "evidence": "Overnight share 11% vs ~39%",
+              "value_text": null
+            },
+            {
+              "stage": "Return",
+              "gap_pct": null,
+              "evidence": "78% of foreign guests are repeaters",
+              "value_text": null
+            }
+          ]
+        },
+        {
+          "id": "q4-access",
+          "type": "indicators",
+          "span": 6,
+          "status": "real",
+          "title": "Access",
+          "items": [
+            {
+              "value_text": "0",
+              "label": "Direct bus trips Fukui Stn → Tojinbo",
+              "severity": "crit",
+              "status": "real"
+            },
+            {
+              "value_text": "18:24",
+              "label": "Last Sunday bus back",
+              "severity": "warn",
+              "status": "real"
+            },
+            {
+              "value_text": "22% vs 11%",
+              "label": "Foreign visitors renting cars, Fukui vs Ishikawa",
+              "severity": "warn",
+              "status": "real"
+            },
+            {
+              "value_text": null,
+              "label": "Visitors on site after last bus",
+              "severity": "pending",
+              "status": "pending",
+              "pending_on": "EdgeAI hourly counts"
+            }
+          ]
+        },
+        {
+          "id": "q4-capacity",
+          "type": "table",
+          "span": 6,
+          "status": "real",
+          "title": "Capacity",
+          "columns": [
+            "Measure",
+            "Fukui",
+            "Benchmark",
+            "Reading",
+            "Status"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "Hotel rooms",
+                "46.5% occupancy",
+                "Ishikawa 58.2%",
+                "Spare capacity"
+              ],
+              "status": "real"
+            },
+            {
+              "cells": [
+                "Bus loads",
+                null,
+                "85% threshold",
+                "Needs ridership data"
+              ],
+              "status": "pending"
+            },
+            {
+              "cells": [
+                "Tojinbo peak hour",
+                null,
+                "Site capacity",
+                "Needs hourly counts"
+              ],
+              "status": "pending"
+            }
+          ]
+        }
+      ],
+      "spec": {
+        "data": "Route-search interest (Fukui vs Ishikawa); product audit; bus timetables and ridership; occupancy statistics; EdgeAI hourly counts.",
+        "model": "Stage gap = 1 − Fukui ÷ Kanazawa; value at stake = visitors lost × spend difference; load factor = riders ÷ seats.",
+        "outputs": "Funnel with ¥ at stake per stage; access and capacity indicators.",
+        "acceptance": "Each stage cites its Fukui and Kanazawa source on the same definition.",
+        "status": "Discover and Stay gaps ready; ¥ values, ridership and hourly counts pending."
+      }
+    },
+    {
+      "id": "q5",
+      "number": 5,
+      "nav": "Program Evaluation",
+      "title": "Program Evaluation",
+      "question": "Which investments deliver the best return?",
+      "why": "Put limited budget where it adds the most nights and spend.",
+      "subs": [
+        "What did each programme add?",
+        "Which mix closes the gap to target?"
+      ],
+      "answer": "Not yet answerable; programmes report outputs, not extra nights.",
+      "cards": [
+        {
+          "id": "q5-returns",
+          "type": "table",
+          "span": 12,
+          "status": "illustrative",
+          "title": "Programme returns",
+          "note": "Bracketed values are placeholders. Programmes without a baseline show \"not yet measurable\", never a number.",
+          "columns": [
+            "Programme",
+            "Budget",
+            "Output reported",
+            "Extra nights",
+            "Cost per night",
+            "Pace"
+          ],
+          "rows": [
+            {
+              "cells": [
+                "Stay campaign phase 2 (Happy Coin)",
+                "¥[300]m",
+                "Coins claimed",
+                "[18,000]",
+                "¥[16,700]",
+                ".78 vs .93"
+              ],
+              "status": "illustrative",
+              "pace": {
+                "value": 0.78,
+                "expected": 0.93,
+                "label": "Coins claimed vs time elapsed"
+              }
+            },
+            {
+              "cells": [
+                "Inbound content + OTA",
+                "¥[80]m",
+                "Impressions",
+                "Not yet measurable",
+                "Not yet measurable",
+                ""
+              ],
+              "status": "illustrative"
+            },
+            {
+              "cells": [
+                "FTAS inbound survey",
+                "Enabler",
+                "Survey responses",
+                "Not yet measurable",
+                "",
+                ""
+              ],
+              "status": "illustrative"
+            },
+            {
+              "cells": [
+                "A2 one-way transfer tour",
+                "Proposed",
+                "",
+                "",
+                "",
+                ""
+              ],
+              "status": "illustrative"
+            }
+          ]
+        },
+        {
+          "id": "q5-builder",
+          "type": "builder",
+          "span": 12,
+          "status": "illustrative",
+          "title": "Gap-to-target builder",
+          "note": "Move the levers to see how far each closes the gap to the 2029 vision targets. Gaps use 2025 actuals: 108.6k foreign and 3.93M total guest-nights (JTA 宿泊旅行統計調査 2025 確定). A2 riders count toward all overnight guests only: each rider is a day-tripper who stays a night instead (¥24,675 extra), and their nationality isn't known, so they aren't counted toward the foreign gap. Not a forecast.",
+          "levers": [
+            {
+              "id": "A1",
+              "label": "A1 Visibility in Kanazawa / Kyoto",
+              "help": "Share of ~840k foreign overnight guests adding a Fukui night",
+              "min": 0,
+              "max": 10,
+              "step": 0.5,
+              "default": 3,
+              "unit": "%",
+              "base": 840000,
+              "counts": [
+                "foreign",
+                "overnight"
+              ],
+              "spend_per": 43000
+            },
+            {
+              "id": "A2",
+              "label": "A2 One-way transfer tour riders",
+              "help": "Riders per year",
+              "min": 0,
+              "max": 30000,
+              "step": 1000,
+              "default": 10000,
+              "unit": "riders",
+              "base": 1,
+              "counts": [
+                "overnight"
+              ],
+              "spend_per": 24675,
+              "unit_ja": "人"
+            },
+            {
+              "id": "A3",
+              "label": "A3 Loop bus timed to shinkansen",
+              "help": "Share of 19.06M day trips converted to a stay",
+              "min": 0,
+              "max": 1,
+              "step": 0.05,
+              "default": 0.3,
+              "unit": "%",
+              "base": 19060000,
+              "counts": [
+                "overnight"
+              ],
+              "spend_per": 24675
+            },
+            {
+              "id": "A4",
+              "label": "A4 Segment stay packages",
+              "help": "Share of 19.06M day trips converted to a stay",
+              "min": 0,
+              "max": 3,
+              "step": 0.1,
+              "default": 0.5,
+              "unit": "%",
+              "base": 19060000,
+              "counts": [
+                "overnight"
+              ],
+              "spend_per": 24675
+            }
+          ],
+          "gaps": [
+            {
+              "id": "foreign",
+              "label": "Foreign guest-nights (the vision's 外国人宿泊者数)",
+              "gap": 291450,
+              "formula": "400k − 108.6k (2025)"
+            },
+            {
+              "id": "overnight",
+              "label": "All overnight guest-nights (the vision's 県内宿泊者数)",
+              "gap": 570430,
+              "formula": "4.5M − 3.93M (2025)"
+            }
+          ],
+          "source": "ネクストふくい観光ビジョン (Mar 2025), KPI table p.9: baseline 2023, target 2029, both calendar years. https://www.pref.fukui.lg.jp/doc/kankou/newvision_d/fil/4_02.pdf Actuals: JTA 宿泊旅行統計調査 2025 確定 (6 Jul 2026), guest-nights (延べ宿泊者数), calendar year. https://www.mlit.go.jp/kankocho/content/002010555.pdf"
+        }
+      ],
+      "spec": {
+        "data": "Programme budgets and outputs; F2 monthly guest-night baseline (Q2).",
+        "model": "Extra nights = actual − F2 baseline.",
+        "outputs": "Cost per extra night per programme; gap-to-target mix.",
+        "acceptance": "Programmes without a baseline show \"not yet measurable\", never a number.",
+        "status": "Needs F2 baseline and programme-level night counts."
+      }
+    }
+  ]
+}
